@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/img/logo.png';
+import mainTheme from '../themes/theme';
 
 export default function Navbar() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white p-8">
+    <nav className="bg-white p-1">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0 flex items-center">
@@ -20,7 +21,7 @@ export default function Navbar() {
                 alt="Logo"
                 className="h-8 w-auto sm:h-10 mr-2"
               />
-              <h1 className="text-primary text-lg font-normal" style={{ fontSize: '40px', color: '#9A8350'}}>
+              <h1 className="text-primary text-lg font-normal" style={{ fontSize: '40px', color: mainTheme.colors.primary}}>
                 Treasure
               </h1>
             </Link>
@@ -67,38 +68,44 @@ export default function Navbar() {
             <Link
               to="/"
               className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium block sm:inline-block"
+              style={{color: mainTheme.colors.fontPrimary, fontFamily: mainTheme.typography.secondaryFont}}
             >
               Home
             </Link>
             <Link
               to="/shop"
               className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium block sm:inline-block"
+              style={{color: mainTheme.colors.fontPrimary, fontFamily: mainTheme.typography.secondaryFont}}
             >
               Bridal
             </Link>
             <Link
               to="/shop"
               className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium block sm:inline-block"
+              style={{color: mainTheme.colors.fontPrimary, fontFamily: mainTheme.typography.secondaryFont}}
             >
               Exclusive
             </Link>
             <Link
               to="/shop"
               className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium block sm:inline-block"
+              style={{color: mainTheme.colors.fontPrimary, fontFamily: mainTheme.typography.secondaryFont}}
             >
               Collections
             </Link>
             <Link
               to="#"
               className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium block sm:inline-block"
+              style={{color: mainTheme.colors.fontPrimary, fontFamily: mainTheme.typography.secondaryFont}}
             >
               About
             </Link>
             <Link
               to="/cart"
               className="text-gray-500 hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium block sm:inline-block"
+              style={{color: mainTheme.colors.fontPrimary, fontFamily: mainTheme.typography.secondaryFont}}
             >
-              <i className="fa fa-shopping-bag fa-sm mr-1"></i>
+              <i className="fa fa-shopping-bag fa-sm mr-1" ></i>
               <span className="hidden md:inline"></span>
             </Link>
           </div>

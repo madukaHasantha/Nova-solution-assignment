@@ -4,27 +4,15 @@ import logo from "../assets/img/logo.png";
 function Footer() {
   return (
     <footer>
-      <div className="bg-yellow-600 p-10 lg:p-20 flex items-center justify-center" style={{ backgroundColor: '#9A8350' }}>
-        <div className="container" style={{ lineHeight: '35px', transition: '0.5s' }}>
-          <div className="row">
-            <div className="col text-center">
-              <h1 className="text-white" style={{ fontSize: '24px', fontWeight: '400' }}>
-                Follow Us @TreasureOfficial on Instagram
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-gray-900 p-10 lg:p-20 text-white">
+      <div className="p-2 text-white lg:p-20" style={{ backgroundColor: '#1F1F1F'}}>
         <div className="container">
           <div className="container py-5">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-              {/* Left-sided column */}
-              <div className="w-full sm:w-1/2 lg:w-1/4 mb-5">
+            <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+              {/* Left side column */}
+              <div className="w-full mb-5 sm:w-1/2 lg:w-1/4">
                 <a href="#">
                   <div className="flex items-center">
-                    {/* Left-sided column for the image */}
+                    {/* Left side column image */}
                     <div>
                       <img
                         src={logo}
@@ -33,9 +21,9 @@ function Footer() {
                         style={{ width: "50px", height: "50px" }}
                       />
                     </div>
-                    {/* Right-sided column for heading and paragraph */}
-                    <div className="ms-2 lg:ms-4 flex flex-col justify-center">
-                      <h3 className="text-white text-xl lg:text-4xl">Treasure</h3>
+                    {/* Right side column header and paragpraph */}
+                    <div className="flex flex-col justify-center ms-2 lg:ms-4">
+                      <h3 className="text-xl text-white lg:text-4xl">Treasure</h3>
                       <p className="mb-2 foot-item" style={{ color: '#939393', fontSize: '12px' }}>
                         Every sparkle a stolen glance
                       </p>
@@ -43,13 +31,13 @@ function Footer() {
                   </div>
                 </a>
               </div>
-              {/* Right-sided columns */}
+              {/* Right side column */}
               <div className="w-full sm:w-1/2 lg:w-5/6">
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 lg:gap-x-20 xl:gap-x-40">
-                  {/* Column 1 (Navigate) */}
+                  {/* Column one Navigater */}
                   <div className="mb-4">
                     <div className="flex flex-col footer-item">
-                      <h3 className="text-light mb-4 lg:mb-10"  style={{fontSize:'25px'}}>Navigate</h3>
+                      <h3 className="mb-4 text-light lg:mb-10"  style={{fontSize:'25px'}}>Navigate</h3>
                       <a href="/" className="mb-2 foot-item">
                         Home
                       </a>
@@ -67,10 +55,10 @@ function Footer() {
                       </a>
                     </div>
                   </div>
-                  {/* Column 2 (Need Help?) */}
+                  {/* Column 02 */}
                   <div className="mb-4">
                     <div className="flex flex-col footer-item">
-                      <h3 className="text-light mb-4 lg:mb-10" style={{whiteSpace:'nowrap', fontSize:'25px' }} >Need Help?</h3>
+                      <h3 className="mb-4 text-light lg:mb-10" style={{whiteSpace:'nowrap', fontSize:'25px' }} >Need Help?</h3>
                       <a href="/" className="mb-2 foot-item"  style={{whiteSpace:'nowrap'}}>
                         Customer Service
                       </a>
@@ -79,10 +67,10 @@ function Footer() {
                       </a>
                     </div>
                   </div>
-                  {/* Column 3 (Social) */}
+                  {/* Column 03 */}
                   <div className="mb-4">
                     <div className="flex flex-col footer-item">
-                      <h3 className="text-light mb-4 lg:mb-10" style={{fontSize:'25px'}}>Social</h3>
+                      <h3 className="mb-4 text-light lg:mb-10" style={{fontSize:'25px'}}>Social</h3>
                       <a href="/" className="mb-2 foot-item">
                         Instagram
                       </a>
