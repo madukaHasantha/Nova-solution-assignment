@@ -2,47 +2,51 @@ import React, { useState } from "react";
 import mainTheme from "../themes/theme";
 import { products } from "../data/Dataset";
 
-
 function CollectionsSection() {
-
   const ItemCount = products.length;
   const [productItems, setProductItem] = useState(products);
   const [selectedCategoryItems, setSelectedCategoryItems] = useState("");
+  const [selectedMetalItems, setSelectedMetalItems] = useState("");
   const [PriceRangeValue, setPriceRangeValue] = useState(0);
-  
 
-  const filteredItems = (category, price) => {
-    let newItem;
-  
-    // Filtering by category
-    if (category === "all") {
-      newItem = products;
-    } else {
-      newItem = products.filter((item) => item.karatage === category);
+  const filteredItems = (category, metal, price) => {
+    let newItem = [...products]; // copy of products
+
+    // Filtering by karatage
+    if (category !== "") {
+      newItem = newItem.filter((item) => item.karatage === category);
     }
-  
+
+    // Filtering by metal
+    if (metal !== "") {
+      newItem = newItem.filter((item) => item.metal === metal);
+    }
+
     // Filtering by price
-    if (price !== undefined) {
+    if (price !== 0) {
       newItem = newItem.filter((item) => item.price <= price);
     }
-    if (price === 2000) {
-      newItem = products; // This line seems incorrect
-    }
+
     setProductItem(newItem);
   };
-  
 
-   //handle the price range input
-   const handlePriceRange = (event) => {
-    const value = event.target.value;
+  //handle the price range input
+  const handlePriceRange = (event) => {
+    const value = parseInt(event.target.value);
     setPriceRangeValue(value);
-    filteredItems("all", value);
+    filteredItems(selectedCategoryItems, selectedMetalItems, value);
   };
 
-  // Handle the checkbox change input
+  // handle the checkbox change input for karatage
   const handleCheckboxInputChange = (category) => {
     setSelectedCategoryItems(category);
-    filteredItems(category, PriceRangeValue);
+    filteredItems(category, selectedMetalItems, PriceRangeValue);
+  };
+
+  // handle the checkbox change input for metal
+  const handleMetalCheckboxInputChange = (metal) => {
+    setSelectedMetalItems(metal);
+    filteredItems(selectedCategoryItems, metal, PriceRangeValue);
   };
   return (
     <>
@@ -54,11 +58,25 @@ function CollectionsSection() {
                 <div className="col-xl-6"></div>
                 <div className="mt-4 row g-4">
                   <div className="col-xl-3 d-flex justify-content-start align-items-center">
-                    <h3 style={{ fontFamily: mainTheme.fontWeight.medium, fontSize: '24px'}}>Filters</h3>
+                    <h3
+                      style={{
+                        fontFamily: mainTheme.fontWeight.medium,
+                        fontSize: "24px",
+                      }}
+                    >
+                      Filters
+                    </h3>
                   </div>
                   <div className="col-xl-6"></div>
                   <div className="col-xl-3 d-none d-xl-flex justify-content-end align-items-center">
-                    <h3 style={{ fontFamily: mainTheme.fontWeight.medium, fontSize: '24px'}}>{ItemCount} item(s)</h3>
+                    <h3
+                      style={{
+                        fontFamily: mainTheme.fontWeight.medium,
+                        fontSize: "24px",
+                      }}
+                    >
+                      {ItemCount} item(s)
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -86,7 +104,9 @@ function CollectionsSection() {
                                   id="karatage_22k"
                                   value="22k"
                                   checked={selectedCategoryItems === "22k"}
-                                  onChange={() => handleCheckboxInputChange("22k")}
+                                  onChange={() =>
+                                    handleCheckboxInputChange("22k")
+                                  }
                                 />
                                 22k
                               </label>
@@ -101,11 +121,11 @@ function CollectionsSection() {
                                 <input
                                   className="form-check-input"
                                   type="checkbox"
-                                  id="braceletsCheckbox"
-                                  value="Bracelets"
-                                  checked={selectedCategoryItems === "Bracelets"}
+                                  id="karatage_20k"
+                                  value="20k"
+                                  checked={selectedCategoryItems === "20k"}
                                   onChange={() =>
-                                    handleCheckboxInputChange("Bracelets")
+                                    handleCheckboxInputChange("20k")
                                   }
                                 />
                                 20k
@@ -121,11 +141,11 @@ function CollectionsSection() {
                                 <input
                                   className="form-check-input"
                                   type="checkbox"
-                                  id="necklacesCheckbox"
-                                  value="Necklaces"
-                                  checked={selectedCategoryItems === "Necklaces"}
+                                  id="karatage_18k"
+                                  value="18k"
+                                  checked={selectedCategoryItems === "18k"}
                                   onChange={() =>
-                                    handleCheckboxInputChange("Necklaces")
+                                    handleCheckboxInputChange("18k")
                                   }
                                 />
                                 18k
@@ -137,62 +157,67 @@ function CollectionsSection() {
                     </div>
 
                     {/* ---- Filtering by Metal----- */}
-
                     <div className="col-lg-12">
                       <div className="mb-3">
                         <h3>Metal</h3>
                         <ul className="list-unstyled fruite-categories">
-                          <li key={products.id}>
+                          <li>
                             <div className="form-check d-flex justify-content-between fruite-name">
                               <label
                                 className="form-check-label"
-                                htmlFor="necklacesCheckbox"
+                                htmlFor="Metal_RoseGold"
                               >
                                 <input
                                   className="form-check-input"
                                   type="checkbox"
-                                  id="necklacesCheckbox"
-                                  value="Necklaces"
-                                  checked={selectedCategoryItems === "Chain"}
-                                  onChange={() => handleCheckboxInputChange("Chain")}
+                                  id="Metal_RoseGold"
+                                  value="rose gold"
+                                  checked={selectedMetalItems === "rose gold"}
+                                  onChange={() =>
+                                    handleMetalCheckboxInputChange("rose gold")
+                                  }
                                 />
                                 Rose Gold
                               </label>
                             </div>
                           </li>
-                          <li key={products.id}>
+                          <li>
                             <div className="form-check d-flex justify-content-between fruite-name">
                               <label
                                 className="form-check-label"
-                                htmlFor="newCheckbox"
+                                htmlFor="Metal_WhiteGold"
                               >
                                 <input
-                                  className="form-check-input "
+                                  className="form-check-input"
                                   type="checkbox"
-                                  id="newCheckbox"
-                                  value="New"
-                                  checked={selectedCategoryItems === "Ear studs"}
+                                  id="Metal_WhiteGold"
+                                  value="white gold"
+                                  checked={selectedMetalItems === "white gold"}
                                   onChange={() =>
-                                    handleCheckboxInputChange("Ear studs")
+                                    handleMetalCheckboxInputChange("white gold")
                                   }
                                 />
                                 White Gold
                               </label>
                             </div>
                           </li>
-                          <li key={products.id}>
+                          <li>
                             <div className="form-check d-flex justify-content-between fruite-name">
                               <label
                                 className="form-check-label"
-                                htmlFor="newCheckbox"
+                                htmlFor="Metal_YellowGold"
                               >
                                 <input
                                   className="form-check-input"
                                   type="checkbox"
-                                  id="newCheckbox"
-                                  value="New"
-                                  checked={selectedCategoryItems === "New"}
-                                  onChange={() => handleCheckboxInputChange("New")}
+                                  id="Metal_YellowGold"
+                                  value="yellow gold"
+                                  checked={selectedMetalItems === "yellow gold"}
+                                  onChange={() =>
+                                    handleMetalCheckboxInputChange(
+                                      "yellow gold"
+                                    )
+                                  }
                                 />
                                 Yellow Gold
                               </label>
