@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import mainTheme from "../themes/theme";
 import { products } from "../data/Dataset";
+import line3 from "../assets/img/Line 3.png";
+import line4 from "../assets/img/Line 4.png";
 
 function CollectionsSection() {
-  const ItemCount = products.length;
   const [productItems, setProductItem] = useState(products);
   const [selectedCategoryItems, setSelectedCategoryItems] = useState("");
   const [selectedMetalItems, setSelectedMetalItems] = useState("");
   const [PriceRangeValue, setPriceRangeValue] = useState(0);
+  const [filteredItemCount, setFilteredItemCount] = useState(products.length);
+
+  useEffect(() => {
+    setFilteredItemCount(productItems.length);
+  }, [productItems]);
 
   const filteredItems = (category, metal, price) => {
     let newItem = [...products]; // copy of products
@@ -48,248 +54,174 @@ function CollectionsSection() {
     setSelectedMetalItems(metal);
     filteredItems(selectedCategoryItems, metal, PriceRangeValue);
   };
+
   return (
     <>
-      <div className="px-10 container-fluid fruite">
+      <div className="container px-10 mx-auto">
         <div className="container pb-5">
-          <div className="row g-4">
-            <div className="mt-0 col-lg-12 ">
-              <div className="mt-4 row g-4">
-                <div className="col-xl-6"></div>
-                <div className="mt-4 row g-4">
-                  <div className="col-xl-3 d-flex justify-content-start align-items-center">
-                    <h3
-                      style={{
-                        fontFamily: mainTheme.fontWeight.medium,
-                        fontSize: "24px",
-                      }}
-                    >
-                      Filters
-                    </h3>
-                  </div>
-                  <div className="col-xl-6"></div>
-                  <div className="col-xl-3 d-none d-xl-flex justify-content-end align-items-center">
-                    <h3
-                      style={{
-                        fontFamily: mainTheme.fontWeight.medium,
-                        fontSize: "24px",
-                      }}
-                    >
-                      {ItemCount} item(s)
-                    </h3>
-                  </div>
-                </div>
+          <div className="flex items-center justify-between mt-[80px] mb-10">
+            <h3 className="text-lg font-medium">Filters</h3>
+            <div className="text-lg text-gray-600">
+              Items ({filteredItemCount})
+            </div>
+          </div>
+          <div className="-mt-[40px]">
+            <img src={line3} alt="line3" />
+          </div>
+          <div className="-mt-[1px] ml-[400px] mb-4">
+            <img src={line4} alt="line4" />
+          </div>
+          {/* filter section */}
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-4 lg:grid-cols-5">
+            <div className="md:col-span-1 lg:col-span-1">
+              <div>
+                {/* Karatage */}
+                <h3>Karatage</h3>
+                <ul className="mx-4 text-sm list-none">
+                  <li className="mt-3">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        className="mr-2 form-checkbox"
+                        value="22k"
+                        checked={selectedCategoryItems === "22k"}
+                        onChange={() => handleCheckboxInputChange("22k")}
+                      />
+                      <h3 className="ml-1 text-gray-600">22k</h3>
+                    </label>
+                  </li>
+                  <li className="mt-2">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        className="mr-2 form-checkbox"
+                        value="20k"
+                        checked={selectedCategoryItems === "20k"}
+                        onChange={() => handleCheckboxInputChange("20k")}
+                      />
+                      <h3 className="ml-1 text-gray-600">20k</h3>
+                    </label>
+                  </li>
+                  <li className="mt-2">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        className="mr-2 form-checkbox"
+                        value="18k"
+                        checked={selectedCategoryItems === "18k"}
+                        onChange={() => handleCheckboxInputChange("18k")}
+                      />
+                      <h3 className="ml-1 text-gray-600">18k</h3>
+                    </label>
+                  </li>
+                </ul>
               </div>
+              {/* Metal */}
+              <div>
+                <h3 className="mt-4">Metal</h3>
+                <ul className="mx-4 text-sm list-none">
+                  <li className="mt-3">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        className="mr-2 form-checkbox"
+                        value="rose gold"
+                        checked={selectedMetalItems === "rose gold"}
+                        onChange={() =>
+                          handleMetalCheckboxInputChange("rose gold")
+                        }
+                      />
+                      <h3 className="ml-1 text-gray-600">Rose Gold</h3>
+                    </label>
+                  </li>
+                  <li className="mt-2">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        className="mr-2 form-checkbox"
+                        value="white gold"
+                        checked={selectedMetalItems === "white gold"}
+                        onChange={() =>
+                          handleMetalCheckboxInputChange("white gold")
+                        }
+                      />
+                      <h3 className="ml-1 text-gray-600">White Gold</h3>
+                    </label>
+                  </li>
+                  <li className="mt-2">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        className="mr-2 form-checkbox"
+                        value="yellow gold"
+                        checked={selectedMetalItems === "yellow gold"}
+                        onChange={() =>
+                          handleMetalCheckboxInputChange("yellow gold")
+                        }
+                      />
+                      <h3 className="ml-1 text-gray-600">Yellow Gold</h3>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              {/* Price Range */}
+              <div>
+                <h3 className="mt-4">Price Range</h3>
+                <input
+                  type="range"
+                  className="w-full mx-4 mt-2 form-range"
+                  min="100"
+                  max="1000"
+                  value={PriceRangeValue}
+                  onChange={handlePriceRange}
+                />
+                <output htmlFor="rangeInput" id="amount" className="mx-4">
+                  <h3 className="text-sm text-gray-600">
+                    RS 100 - RS {PriceRangeValue}
+                  </h3>
+                </output>
+              </div>
+            </div>
 
-              <hr className="my-4 mt-2 mb-4" />
-
-              {/* ---- Filtering by Karatage----- */}
-
-              <div className="row g-4">
-                <div className="col-lg-3">
-                  <div className="row g-4">
-                    <div className="col-lg-12">
-                      <div className="mb-3">
-                        <h3>Karatage</h3>
-                        <ul className="list-unstyled fruite-categories">
-                          <li key={products.id}>
-                            <div className="form-check d-flex justify-content-between align-items-center fruite-name">
-                              <label
-                                className="form-check-label"
-                                htmlFor="allCheckbox"
-                              >
-                                <input
-                                  className="form-check-input me-2"
-                                  type="checkbox"
-                                  id="karatage_22k"
-                                  value="22k"
-                                  checked={selectedCategoryItems === "22k"}
-                                  onChange={() =>
-                                    handleCheckboxInputChange("22k")
-                                  }
-                                />
-                                22k
-                              </label>
-                            </div>
-                          </li>
-                          <li key={products.id}>
-                            <div className="form-check d-flex justify-content-between fruite-name">
-                              <label
-                                className="form-check-label"
-                                htmlFor="braceletsCheckbox"
-                              >
-                                <input
-                                  className="form-check-input"
-                                  type="checkbox"
-                                  id="karatage_20k"
-                                  value="20k"
-                                  checked={selectedCategoryItems === "20k"}
-                                  onChange={() =>
-                                    handleCheckboxInputChange("20k")
-                                  }
-                                />
-                                20k
-                              </label>
-                            </div>
-                          </li>
-                          <li key={products.id}>
-                            <div className="form-check d-flex justify-content-between fruite-name">
-                              <label
-                                className="form-check-label"
-                                htmlFor="necklacesCheckbox"
-                              >
-                                <input
-                                  className="form-check-input"
-                                  type="checkbox"
-                                  id="karatage_18k"
-                                  value="18k"
-                                  checked={selectedCategoryItems === "18k"}
-                                  onChange={() =>
-                                    handleCheckboxInputChange("18k")
-                                  }
-                                />
-                                18k
-                              </label>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    {/* ---- Filtering by Metal----- */}
-                    <div className="col-lg-12">
-                      <div className="mb-3">
-                        <h3>Metal</h3>
-                        <ul className="list-unstyled fruite-categories">
-                          <li>
-                            <div className="form-check d-flex justify-content-between fruite-name">
-                              <label
-                                className="form-check-label"
-                                htmlFor="Metal_RoseGold"
-                              >
-                                <input
-                                  className="form-check-input"
-                                  type="checkbox"
-                                  id="Metal_RoseGold"
-                                  value="rose gold"
-                                  checked={selectedMetalItems === "rose gold"}
-                                  onChange={() =>
-                                    handleMetalCheckboxInputChange("rose gold")
-                                  }
-                                />
-                                Rose Gold
-                              </label>
-                            </div>
-                          </li>
-                          <li>
-                            <div className="form-check d-flex justify-content-between fruite-name">
-                              <label
-                                className="form-check-label"
-                                htmlFor="Metal_WhiteGold"
-                              >
-                                <input
-                                  className="form-check-input"
-                                  type="checkbox"
-                                  id="Metal_WhiteGold"
-                                  value="white gold"
-                                  checked={selectedMetalItems === "white gold"}
-                                  onChange={() =>
-                                    handleMetalCheckboxInputChange("white gold")
-                                  }
-                                />
-                                White Gold
-                              </label>
-                            </div>
-                          </li>
-                          <li>
-                            <div className="form-check d-flex justify-content-between fruite-name">
-                              <label
-                                className="form-check-label"
-                                htmlFor="Metal_YellowGold"
-                              >
-                                <input
-                                  className="form-check-input"
-                                  type="checkbox"
-                                  id="Metal_YellowGold"
-                                  value="yellow gold"
-                                  checked={selectedMetalItems === "yellow gold"}
-                                  onChange={() =>
-                                    handleMetalCheckboxInputChange(
-                                      "yellow gold"
-                                    )
-                                  }
-                                />
-                                Yellow Gold
-                              </label>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    {/* ---- Filtering by price----- */}
-
-                    <div className="col-lg-12">
-                      <div className="row g-4">
-                        <div className="col-xl-12">
-                          <input
-                            type="range"
-                            className="form-range w-100"
-                            id="rangeInput"
-                            name="rangeInput"
-                            min="100"
-                            max="1000"
-                            value={PriceRangeValue}
-                            onChange={handlePriceRange}
-                          />
-                          <output id="amount " name="amount">
-                            100 LKR - {PriceRangeValue} LKR
-                          </output>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            {/* products */}
+            <div className="md:col-span-3 lg:col-span-4">
+              {productItems.length === 0 ? (
+                <div className="text-center">
+                  <h1 className="mb-4 text-4xl text-primary">
+                    <span className="fas fa-box-archive text-primary"></span>
+                    No Jewelry to display
+                  </h1>
+                  <h5>
+                    Right now, we don’t have Jewelry for these filters, but
+                  </h5>
+                  <h5>we’ll fulfill your needs soon!</h5>
                 </div>
-                <div className="col-lg-9">
-                  {productItems.length === 0 ? (
-                    <div className="container text-center">
-                      <h1 className="mb-4 text-primary display-6">
-                        <span className="fa-solid fa-box-archive text-primary"></span>
-                        No Jewelery to display
-                      </h1>
-                      <h5>
-                        Right now, we don’t have Jewelry for this filters, But
-                      </h5>
-                      <h5>we’ll full-fill your need soon!</h5>
-                    </div>
-                  ) : (
-                    <div className="row g-2">
-                      {productItems.map((val, index) => (
-                        <div className="col-md-6 col-lg-4 col-xl-3" key={index}>
-                          <div className="rounded position-relative fruite-item">
-                            <div className="fruite-img">
-                              <img
-                                src={val.product_img}
-                                style={{ width: "500px", height: "300px" }} // Adjust width as needed
-                                className="img-fluid rounded-top"
-                                alt={val.description}
-                              />
-                            </div>
-
-                            <div className="p-2 border-secondary border-top-4 rounded-bottom">
-                              <h6>{val.product_name}</h6>
-
-                              <div className="p-2 border-secondary border-top-4 rounded-bottom">
-                                <h5 className="">Rs: {val.price}</h5>
-                              </div>
-                            </div>
+              ) : (
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {productItems.map((val, index) => (
+                    <div
+                      className="col-span-1 md:w-full lg:w-full"
+                      key={index}
+                    >
+                      <div className="overflow-hidden transition-transform duration-300 transform hover:scale-105 p-[10px] m-[10px] ml-10">
+                        <img
+                          src={val.product_img}
+                          alt={val.description}
+                          className="object-cover w-full h-60"
+                        />
+                        <div className="px-6 py-4">
+                          <div className="flex items-center justify-center">
+                            {val.product_name}s
                           </div>
+                          <h5 className="flex items-center justify-center">
+                            Rs: {val.price}
+                          </h5>
                         </div>
-                      ))}
+                      </div>
                     </div>
-                  )}
+                  ))}
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

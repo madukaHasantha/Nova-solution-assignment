@@ -1,9 +1,10 @@
 const mainTheme = {
     colors: {
       primary: '#9A8350',
+      Secondary: '#1F1F1F',
       fontPrimary: '#000000',
       fontSecondary: '#FFFFFF',
-      Secondary: '#1F1F1F',
+     
     },
     typography: {
       mainFont: '"Italiana", sans-serif',

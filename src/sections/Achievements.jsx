@@ -9,27 +9,25 @@ function Achievements() {
 
   return (
     <>
-      <div className="container-fluid px-20 py-5 mb-5">
-        <div className="container py-5">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2">
-              <div className="md:w-3/4 relative">
-                <img src={image3} alt="chain" style={{ width: '100%' }} />
-              </div>
+      <div className="container px-4 py-5 mx-auto md:py-8">
+        <div className="flex flex-col items-center md:flex-row">
+          <div className="ml-5 md:w-1/2">
+            <div className="relative  md:w-3/4 ml-14">
+              <img src={image3} alt="chain" className="w-full " />
             </div>
-            <div className="md:w-1/2 mt-4 md:mt-0" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
-              <h1 className="mb-2 text-secondary text-start md:text-left" style={{ fontSize: '64px', lineHeight: '76px' }}>
-                Jewellery that as beautiful as you are
-              </h1>
-              <h5 className="mb-8 text-lg md:text-xl text-dark text-start md:text-left">
-                Discover our stunning selection of rings, brilliant diamonds,
-                and precious gemstones the eternal bond of love
-              </h5>
-              <div className="text-start md:text-left">
-                <CustomButton onClick={() => handleClick()}>
-                  See All
-                </CustomButton>
-              </div>
+          </div>
+          <div className="mt-4 md:w-1/2 md:mt-0 md:ml-auto">
+            <h1 className="mb-2 text-3xl leading-tight text-secondary md:text-left md:text-5xl">
+              Jewellery that as <br></br> beautiful as you are
+            </h1>
+            <h5 className="mb-8 text-lg md:text-xl text-dark md:text-left">
+              Discover our stunning selection of rings, brilliant diamonds,
+              and precious gemstones the eternal bond of love
+            </h5>
+            <div className=" md:text-left">
+              <CustomButton onClick={() => handleClick()}>
+                See All
+              </CustomButton>
             </div>
           </div>
         </div>
@@ -37,4 +35,5 @@ function Achievements() {
     </>
   );
 }
+
 export default Achievements;
