@@ -8,11 +8,13 @@ export default function Products() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
 
+  //add event listener for window resize and handle mobile view
   useEffect(() => {
     //
     checkMobileView();
+    //Add event listener for window resize
     window.addEventListener("resize", checkMobileView);
-
+    // Cleanup function to remove event listener
     return () => {
       window.removeEventListener("resize", checkMobileView);
     };
@@ -25,17 +27,18 @@ export default function Products() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  //filtering products by category 
+  
+  // Function to filter items by category
   const filterItemsByCategory = (category) => {
     const filteredItems = products.filter((item) => item.category === category);
     setDisplayedItems(filteredItems);
-
+     // Show all items if no category selected or "all" selected
     if (!category || category === "all") {
       setDisplayedItems(products);
       return;
     }
   };
-
+  // Function to handle displaying all items
   const handleShowAllItems = () => {
     filterItemsByCategory();
   };

@@ -183,7 +183,7 @@ function CollectionsSection() {
               </div>
             </div>
 
-            {/* products */}
+            {/* product */}
             <div className="md:col-span-3 lg:col-span-4">
               {productItems.length === 0 ? (
                 <div className="text-center">
