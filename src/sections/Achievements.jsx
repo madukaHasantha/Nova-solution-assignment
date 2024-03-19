@@ -12,7 +12,7 @@ function Achievements() {
       <div className="container px-4 py-5 mx-auto md:py-8">
         <div className="flex flex-col items-center md:flex-row">
           <div className="ml-5 md:w-1/2">
-            <div className="relative  md:w-3/4 ml-14">
+            <div className="relative ml-12 md:w-3/4">
               <img src={image3} alt="chain" className="w-full " />
             </div>
           </div>
