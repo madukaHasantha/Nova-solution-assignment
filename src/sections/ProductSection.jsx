@@ -45,7 +45,7 @@ export default function Products() {
 
   return (
     <>
-      <div className="py-0 mx-auto container-fluid fruite">
+      <div className="py-20 mx-auto container-fluid fruite">
         <div className="container">
           <div className="text-center">
             {/* desktop view menu*/}
