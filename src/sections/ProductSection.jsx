@@ -27,18 +27,18 @@ export default function Products() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
+
   // Function to filter items by category
   const filterItemsByCategory = (category) => {
     const filteredItems = products.filter((item) => item.category === category);
     setDisplayedItems(filteredItems);
-     // Show all items if no category selected or "all" selected
+    // Show all items if no category selected or "all" selected
     if (!category || category === "all") {
       setDisplayedItems(products);
       return;
     }
   };
-  // Function to handle displaying all item
+  // Function to handle displaying all items
   const handleShowAllItems = () => {
     filterItemsByCategory();
   };
@@ -121,10 +121,7 @@ export default function Products() {
                     isMenuOpen ? "block" : "hidden"
                   } bg-white text-center`}
                 >
-                  <Link
-                    className="block mb-3"
-                    onClick={handleShowAllItems}
-                  >
+                  <Link className="block mb-3" onClick={handleShowAllItems}>
                     <h4>All</h4>
                   </Link>
                   <Link
@@ -173,9 +170,13 @@ export default function Products() {
                             />
 
                             <div className="p-4 border-t border-gray-200">
-                              <h6 className="font-semibold">{item.product_name}</h6>
+                              <h6 className="font-semibold">
+                                {item.product_name}
+                              </h6>
                               <div className="mt-2">
-                                <h5 className="font-semibold text-gray-800">Rs: {item.price}</h5>
+                                <h5 className="font-semibold text-gray-800">
+                                  Rs: {item.price}
+                                </h5>
                               </div>
                             </div>
                           </div>

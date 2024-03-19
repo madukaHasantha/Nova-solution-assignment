@@ -183,7 +183,7 @@ function CollectionsSection() {
               </div>
             </div>
 
-            {/* product */}
+            {/* products */}
             <div className="md:col-span-3 lg:col-span-4">
               {productItems.length === 0 ? (
                 <div className="text-center">
@@ -199,10 +199,7 @@ function CollectionsSection() {
               ) : (
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                   {productItems.map((val, index) => (
-                    <div
-                      className="col-span-1 md:w-full lg:w-full"
-                      key={index}
-                    >
+                    <div className="col-span-1 md:w-full lg:w-full" key={index}>
                       <div className="overflow-hidden transition-transform duration-300 transform hover:scale-105 p-[10px] m-[10px] ml-10">
                         <img
                           src={val.product_img}

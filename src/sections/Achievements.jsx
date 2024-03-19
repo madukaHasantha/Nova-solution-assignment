@@ -1,6 +1,6 @@
-import React from 'react';
-import CustomButton from '../components/CustomButton';
-import image3 from '../assets/img/image3.png';
+import React from "react";
+import CustomButton from "../components/CustomButton";
+import image3 from "../assets/img/image3.png";
 
 function Achievements() {
   const handleClick = () => {
@@ -8,6 +8,7 @@ function Achievements() {
   };
 
   return (
+    //Achievements
     <>
       <div className="container px-4 py-5 mx-auto md:py-8">
         <div className="flex flex-col items-center md:flex-row">
@@ -21,13 +22,11 @@ function Achievements() {
               Jewellery that as <br></br> beautiful as you are
             </h1>
             <h5 className="mb-8 text-lg md:text-xl text-dark md:text-left">
-              Discover our stunning selection of rings, brilliant diamonds,
-              and precious gemstones the eternal bond of love
+              Discover our stunning selection of rings, brilliant diamonds, and
+              precious gemstones the eternal bond of love
             </h5>
             <div className=" md:text-left">
-              <CustomButton onClick={() => handleClick()}>
-                See All
-              </CustomButton>
+              <CustomButton onClick={() => handleClick()}>See All</CustomButton>
             </div>
           </div>
         </div>

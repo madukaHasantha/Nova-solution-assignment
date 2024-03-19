@@ -1,12 +1,12 @@
-
 export const products = [
   {
     id: 1,
     product_name: "Chain Type Necklace",
     category: "New",
     price: "400",
-    product_img: '../assets/img/image1.png',
-    description:"From savory appetizers to delectable main courses and irresistible desserts, each dish is crafted",
+    product_img: "../assets/img/image1.png",
+    description:
+      "From savory appetizers to delectable main courses and irresistible desserts, each dish is crafted",
     karatage: "22k",
     metal: "yellow gold",
   },
@@ -16,7 +16,8 @@ export const products = [
     category: "Bracelets",
     price: "969",
     product_img: "../assets/img/image1.png",
-    description:"Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
+    description:
+      "Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
     karatage: "20k",
     metal: "white gold",
   },
@@ -26,7 +27,8 @@ export const products = [
     category: "Necklaces",
     price: "350",
     product_img: "../assets/img/image1.png",
-    description:"From savory appetizers to delectable main courses and irresistible desserts, each dish is crafted",
+    description:
+      "From savory appetizers to delectable main courses and irresistible desserts, each dish is crafted",
     karatage: "18k",
     metal: "rose gold",
   },
@@ -36,7 +38,8 @@ export const products = [
     category: "New",
     price: "600",
     product_img: "../assets/img/image1.png",
-    description:"Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
+    description:
+      "Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
     karatage: "22k",
     metal: "yellow gold ",
   },
@@ -46,7 +49,8 @@ export const products = [
     price: "750",
     category: "Necklaces",
     product_img: "../assets/img/image1.png",
-    description:"From savory appetizers to delectable main courses and irresistible desserts, each dish is crafted ",
+    description:
+      "From savory appetizers to delectable main courses and irresistible desserts, each dish is crafted ",
     karatage: "18k",
     metal: "white gold",
   },
@@ -56,7 +60,8 @@ export const products = [
     category: "Ear studs",
     price: "900",
     product_img: "../assets/img/image1.png",
-    description:"Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
+    description:
+      "Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
     karatage: "20k",
     metal: "rose gold",
   },
@@ -66,7 +71,8 @@ export const products = [
     category: "Bracelets",
     price: "950",
     product_img: "../assets/img/image1.png",
-    description:"Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
+    description:
+      "Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
     karatage: "22k",
     metal: "yellow gold",
   },
@@ -76,7 +82,8 @@ export const products = [
     category: "Bracelets",
     price: "500",
     product_img: "../assets/img/image1.png",
-    description:"Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
+    description:
+      "Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
     karatage: "20k",
     metal: "rose gold ",
   },
@@ -86,7 +93,8 @@ export const products = [
     price: "590",
     category: "Bracelets",
     product_img: "../assets/img/image1.png",
-    description:"Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
+    description:
+      "Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
     karatage: "22k",
     metal: "white gold ",
   },
@@ -96,7 +104,8 @@ export const products = [
     category: "Bracelets",
     price: "800",
     product_img: "../assets/img/image1.png",
-    description:"Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
+    description:
+      "Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
     karatage: "20k",
     metal: "yello gold ",
   },
@@ -106,7 +115,8 @@ export const products = [
     category: "Bracelets",
     price: "700",
     product_img: "../assets/img/image1.png",
-    description:"Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
+    description:
+      "Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
     karatage: "18k",
     metal: "rose gold ",
   },
@@ -116,7 +126,8 @@ export const products = [
     category: "Bracelets",
     price: "200",
     product_img: "../assets/img/image1.png",
-    description:"Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
+    description:
+      "Indulge in a culinary journey of exquisite flavors and tantalizing aromas with our diverse selection",
     karatage: "22k",
     metal: "white gold ",
   },
@@ -155,4 +166,3 @@ export const slides = [
     slide_img: "../assets/img/home-img-2.png",
   },
 ];
-
