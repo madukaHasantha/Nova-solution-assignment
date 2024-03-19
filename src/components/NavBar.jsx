@@ -15,17 +15,20 @@ export default function Navbar() {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center flex-shrink-0 md:mt-5 md:-ml-14">
+            {/* logo */}
             <Link to="/" className="flex items-center">
               <img
                 src={logo}
                 alt="Logo"
                 className="w-auto h-8 mr-2 sm:h-10"
               />
+              {/* company name */}
               <h1 className="text-[40px] font-normal text-black ">
                 Treasure
               </h1>
             </Link>
           </div>
+          {/* mobile view navbar */}
           <div className="block sm:hidden">
             <button
               onClick={toggleNavbar}
@@ -64,6 +67,7 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
+          {/* destop view nav menu */}
           <div className={`${isNavbarOpen ? 'block' : 'hidden'} sm:flex sm:items-center sm:space-x-4 mt-4 sm:mt-0`}>
             <Link
               to="/"
