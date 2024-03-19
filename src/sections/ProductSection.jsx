@@ -38,7 +38,7 @@ export default function Products() {
       return;
     }
   };
-  // Function to handle displaying all items
+  // Function to handle displaying all item
   const handleShowAllItems = () => {
     filterItemsByCategory();
   };
